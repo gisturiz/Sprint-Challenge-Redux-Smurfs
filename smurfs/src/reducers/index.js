@@ -1,8 +1,8 @@
 /*
   Be sure to import in all of the action types from `../actions`
 */
-import { FETCH_START } from '../actions';
-import { FETCH_SUCCESS } from '../actions';
+import { FETCH_START, FETCH_SUCCESS, FETCH_SMURF_START, FETCH_SMURF_SUCCESS } from '../actions';
+
 
 
 //Your initial/default state for this project could *Although does not have to* look a lot like this
@@ -35,6 +35,19 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         fetchingSmurfs: false,
+        error: '',
+        smurfs: action.payload
+      };
+    case FETCH_SMURF_START:
+      return {
+        ...state,
+        updatingSmurf: true,
+        error: false
+      };
+    case FETCH_SMURF_SUCCESS:
+      return {
+        ...state,
+        updatingSmurf: false,
         error: '',
         smurfs: action.payload
       };
