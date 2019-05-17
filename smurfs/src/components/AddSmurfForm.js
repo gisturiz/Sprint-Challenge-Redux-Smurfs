@@ -16,9 +16,11 @@ class AddSmurfForm extends Component {
         e.preventDefault();
         this.props.createSmurf(this.state.smurfs);
         this.setState({
+            smurfs: {
             name: '',
             age: '',
             height: ''
+            }
           });
     }
     handleInputChange = e => {
